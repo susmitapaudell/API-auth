@@ -12,6 +12,4 @@ class User(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
-if __name__ == "__main__":
-    #from app.models.user import User
-    print(User)
+
