@@ -9,9 +9,8 @@ import os
 load_dotenv()
 
 IMPORTED_SECRET_KEY = os.getenv("SECRET_KEY")
-
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+IMPORTED_ALGORITHM = os.getenv("ALGORITHM")
+IMPORTED_ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")
 
 pwd_context = CryptContext(
     schemes = ["argon2"],
@@ -26,14 +25,14 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 
 def create_access_token(data: dict):
     to_encode = data.copy()
-    expire = datetime.utcnow() + timedelta(minutes = ACCESS_TOKEN_EXPIRE_MINUTES)
+    expire = datetime.utcnow() + timedelta(minutes =int(IMPORTED_ACCESS_TOKEN_EXPIRE_MINUTES))
     to_encode.update( {"exp" : expire})
-    token = jwt.encode(to_encode, IMPORTED_SECRET_KEY, algorithm=ALGORITHM)
+    token = jwt.encode(to_encode, IMPORTED_SECRET_KEY, algorithm=IMPORTED_ALGORITHM)
     return token
 
 def decode_toke(token: str):
     try:
-        payload = jwt.decode(token, IMPORTED_SECRET_KEY, algorithms=[ALGORITHM])
+        payload = jwt.decode(token, IMPORTED_SECRET_KEY, algorithms=[IMPORTED_ALGORITHM])
         return payload
     except JWTError:
         return None
