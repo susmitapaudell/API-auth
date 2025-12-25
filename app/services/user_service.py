@@ -14,7 +14,7 @@ def create_user(db: Session, user: UserCreate):
     db.refresh(db_user)
     return db_user
 
-def login_user(db, email: str, password: str):
+def login_user(db: Session, email: str, password: str):
     user = get_user_by_email(db, email)
 
     if not user:
@@ -23,9 +23,10 @@ def login_user(db, email: str, password: str):
     if not verify_password(password, user.hashed_password):
         return None
     
-    token_data = {
-        "sub" : str(user.id),
-        "email" : user.email
-    }
-    access_token = create_access_token(token_data)
-    return access_token
+#    token_data = {
+#        "sub" : str(user.id),
+#       "email" : user.email
+#    }
+#    access_token = create_access_token(token_data)
+#    return access_token
+    return user

@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+import uuid
 
 load_dotenv()
 
@@ -52,3 +53,6 @@ def verify_jwt(token: str):
 def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)):
     token = credentials.credentials
     return verify_jwt(token)
+
+def create_refresh_token() -> str:
+    return str(uuid.uuid4())
