@@ -1,22 +1,18 @@
-# Auth Backend Service
+##Auth Backend Service
+##Overview
 
-## Project Overview
-This project is a **backend-only authentication and user management system** built with **Python** and **FastAPI**.  
-It is designed as a standalone service that can be reused by any application requiring secure user authentication.
-
-The system focuses on real-world backend engineering concepts rather than frontend development. All interactions are done through API calls via **Swagger UI**.
+A FastAPI-based authentication backend for secure user registration and login.
+Implements JWT-based authentication with access and refresh tokens, allowing applications to authenticate users and issue tokens for session management.
 
 ---
 
-## Why This Project Matters
-Authentication is one of the most critical components of any software system.
+##Features Implemented
 
-By completing this project, I demonstrate:
-- Security awareness
-- Backend architecture thinking
-- Practical FastAPI knowledge
-- Database modeling skills
-- Ability to design production-oriented systems
+User Registration: Stores email and hashed password securely.
+
+Login: Verifies credentials and issues JWT access and refresh tokens.
+
+Refresh Tokens: Exchange valid refresh tokens for new access tokens.
 
 
 ## High-Level System Flow
@@ -37,7 +33,7 @@ By completing this project, I demonstrate:
 - **Database:** PostgreSQL
 - **ORM:** SQLAlchemy
 - **Authentication:** JWT (JSON Web Tokens)
-- **Password Security:** Bcrypt / Passlib
+- **Password Security:** Argon2
 - **Environment Config:** python-dotenv
 - **API Testing:** Swagger UI / Postman
 - **Version Control:** Git

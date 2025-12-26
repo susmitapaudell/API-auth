@@ -18,7 +18,7 @@ auth_scheme = HTTPBearer()
 def create_jwt(user_id: int, email: str):
     expire = datetime.now(timezone.utc) + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     payload = {
-        "user_id": user_id,
+        "sub": user_id,
         "email": email,
         "exp": expire.timestamp()
     }
