@@ -1,12 +1,12 @@
-##Auth Backend Service
-##Overview
+## Auth Backend Service
+## Overview
 
 A FastAPI-based authentication backend for secure user registration and login.
 Implements JWT-based authentication with access and refresh tokens, allowing applications to authenticate users and issue tokens for session management.
 
 ---
 
-##Features Implemented
+## Features Implemented
 
 User Registration: Stores email and hashed password securely.
 
