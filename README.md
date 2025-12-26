@@ -21,9 +21,9 @@ Refresh Tokens: Exchange valid refresh tokens for new access tokens.
 3. User data is stored securely in the database.
 4. User logs in with credentials.
 5. Backend verifies password and issues JWT tokens (access + refresh).
-6. User accesses protected routes using tokens.
-7. Backend authorizes or rejects requests.
-8. Refresh token endpoint handles expired access tokens securely.
+[comment]: # 6. User accesses protected routes using tokens.
+[comment]: # 7. Backend authorizes or rejects requests.
+6. Refresh token endpoint handles expired access tokens securely.
 
 ---
 
